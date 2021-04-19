@@ -45,17 +45,18 @@ Anime-style images  of 126 tags are collected from [danbooru.donmai.us](http://d
 
   Prequisites: gallery-dl, python-animeface
 
-1. Download anime-style images 
+1. anime-style 이미지 다운로드 
 
    ```bash
    # download 1000 images under the tag "misaka_mikoto"
    gallery-dl --images 1000 "https://danbooru.donmai.us/posts?tags=misaka_mikoto"
 
-   # in a multi-processing manner
+   # 한번에 여러개 다운로드. 이 방법은 lnux나 windows bash에서 사용가능하다.
    cat tags.txt | \
    xargs -n 1 -P 12 -I 'tag' \ 
    bash -c ' gallery-dl --images 1000 "https://danbooru.donmai.us/posts?tags=$tag" '
    ```
+   이 작업을 python을 실행하게 만든 것이 dlimages.py이다.
 
 2. Extract faces from the downloaded images
 
