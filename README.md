@@ -1,6 +1,6 @@
 # AnimeHAN
 
-> 애니메이션에 나오는 얼굴 그림을 위한 Generative Adversarial Networks을 PyTorch로 간단하게 구현하였다. 이것은 원작자의 작업을 한글화한 것이다. 
+> 애니메이션에 나오는 얼굴 그림을 위한 Generative Adversarial Networks을 PyTorch로 간단하게 구현하였다. 이것은 원작자의 작업 AnimeGAN을 한글화한 것이다. 제목을 AnimeHAN으로 바꾼 이유는 원래의 AnimeGAN과 혼동되는 것을 피하기 위한 것이다.
 
 ### Randomly Generated Images
 
