@@ -37,9 +37,9 @@ The pretrained model for DCGAN are also in this repo, play it inside the jupyter
 
 
 
-### anime-faces Dataset
+### anime-faces 데이터셋
 
-Anime-style images  of 126 tags are collected from [danbooru.donmai.us](http://danbooru.donmai.us/) using the crawler tool [gallery-dl](https://github.com/mikf/gallery-dl). The images are then processed by a anime face detector [python-animeface](https://github.com/nya3jp/python-animeface). The resulting dataset contains ~143,000 anime faces. Note that some of the tags may no longer meaningful after cropping, i.e. the cropped face images under 'uniform' tag may not contain visible parts of uniforms.
+[danbooru.donmai.us](http://danbooru.donmai.us/)로부터 크롤러 툴 [gallery-dl](https://github.com/mikf/gallery-dl)을 사용하여 126개 태그의 이미지를 수집하였다. 이 이미지들을 anime face 검출기 [python-animeface](https://github.com/nya3jp/python-animeface)로 처리하였다. The resulting dataset contains ~143,000 anime faces. Note that some of the tags may no longer meaningful after cropping, i.e. the cropped face images under 'uniform' tag may not contain visible parts of uniforms.
 
 > How to construct the dataset from scratch ?
 
