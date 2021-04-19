@@ -60,7 +60,7 @@ Anime-style images  of 126 tags are collected from [danbooru.donmai.us](http://d
    ```python
    python dlimages.py
    ```
-   
+   실행 시간이 퍽 길어요. 다운로드 중에는 다른 일이나 해야겠습니다.
 
 2. Extract faces from the downloaded images
 
