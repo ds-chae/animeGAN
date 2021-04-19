@@ -57,6 +57,10 @@ Anime-style images  of 126 tags are collected from [danbooru.donmai.us](http://d
    bash -c ' gallery-dl --images 1000 "https://danbooru.donmai.us/posts?tags=$tag" '
    ```
    이 작업을 python을 실행하게 만든 것이 dlimages.py이다.
+   ```python
+   python dlimages.py
+   ```
+   
 
 2. Extract faces from the downloaded images
 
