@@ -54,13 +54,14 @@ The pretrained model for DCGAN are also in this repo, play it inside the jupyter
    # 한번에 여러개 다운로드. 이 방법은 lnux나 windows bash에서 사용가능하다.
    cat tags.txt | \
    xargs -n 1 -P 12 -I 'tag' \ 
-   bash -c ' gallery-dl --images 1000 "https://danbooru.donmai.us/posts?tags=$tag" '
+   bash -c ' gallery-dl --range 1-1000 "https://danbooru.donmai.us/posts?tags=$tag" '
    ```
    이 작업을 python을 실행하게 만든 것이 dlimages.py이다.
    ```python
    python dlimages.py
    ```
    실행 시간이 퍽 길어요. 다운로드 중에는 다른 일이나 해야겠습니다.
+   126카테고리의 이미지를 1000장씩 다운로드하는데 약 31시간이 걸렸습니다.
 
 2. Extract faces from the downloaded images
 
