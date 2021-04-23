@@ -76,9 +76,11 @@ The pretrained model for DCGAN are also in this repo, play it inside the jupyter
    im.show() # display
    ```
 
+animeface는 Windows에서는 build가 안 됩니다. 그래서 리눅스에서 돌렸습니다. linux에서는 '''pip install animeface'''하면 설치가 됩니다.
 
-I've cleaned the original dataset, the new version of the dataset has
-115085 images in 126 tags. You can access the images from:
+처
+
+원작자의 학습 이미지는 아래 사이트에 있습니다. 126태그에 115085장의 이미지라고 합니다.
 - Brine (a python-based dataset management library): https://www.brine.io/jayleicn/anime-faces 
 - Google Drive: https://drive.google.com/file/d/0B4wZXrs0DHMHMEl1ODVpMjRTWEk/view?usp=sharing
 - BaiduYun: https://pan.baidu.com/s/1o8Nxllo
