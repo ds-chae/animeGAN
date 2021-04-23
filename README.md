@@ -78,14 +78,15 @@ The pretrained model for DCGAN are also in this repo, play it inside the jupyter
 
 animeface는 Windows에서는 build가 안 됩니다. 그래서 리눅스에서 돌렸습니다. linux에서는 '''pip install animeface'''하면 설치가 됩니다.
 
-처
+
+처음 다운로드한 이미지의 갯수는 1000 = 126,000개입니다. 이걸 가지고 animeface를 돌리니까 png파일의 일부는 0byte로 저장이 돼서 삭제해 버렸습니다. 그리고 남은 것이 약 32,000개입니다. 이렇게 잘라낸 얼굴 이미지를 Windows로 옮겨서 검사를 해보니까 얼굴이 아닌 것과, 두 명 이상인 것, 그리고 얼굴이라기에는 좀 조잡한 것들이 약 30% 정도 나옵니다. 이걸 정리하다가 중간에 그만두고 그냥 트레이닝을 시작했습니다.
 
 원작자의 학습 이미지는 아래 사이트에 있습니다. 126태그에 115085장의 이미지라고 합니다.
 - Brine (a python-based dataset management library): https://www.brine.io/jayleicn/anime-faces 
 - Google Drive: https://drive.google.com/file/d/0B4wZXrs0DHMHMEl1ODVpMjRTWEk/view?usp=sharing
 - BaiduYun: https://pan.baidu.com/s/1o8Nxllo
 
-Non-commercial use please.
+원저자는 상업적 용도로 사용하지 말아달라고 합니다.
 
 ### Things I've learned
 1. GANs are really hard to train.
