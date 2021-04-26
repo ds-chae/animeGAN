@@ -4,7 +4,7 @@
 
 ### Randomly Generated Images
 
-The images are generated from a DCGAN model trained on 143,000 anime character faces for 100 epochs.
+30,667개의 이미지를 이용해서 300번 돌린 결과이다. 중간에 mod collapse에 해당하는 이미지도 나온다.
 
 ![fake_sample_1](Webp.net-gifmaker.gif)
 
