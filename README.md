@@ -6,7 +6,7 @@
 
 The images are generated from a DCGAN model trained on 143,000 anime character faces for 100 epochs.
 
-![fake_sample_1](images/fake_sample.png)
+![fake_sample_1](Webp.net-gifmaker.gif)
 
 
 ### Image Interpolation
