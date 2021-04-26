@@ -25,8 +25,10 @@ def min_resize_crop(im, min_side):
     if sizeX > sizeY:
         im = im.resize((min_side*sizeX/sizeY, min_side), Image.ANTIALIAS)
     else:
-        im = im.resize((min_side, sizeY*min_side/sizeX), Image.ANTIALIAS)
-    return im.crop((0,0,min_side,min_side))
+        scale=(int)(sizeY*min_side/sizeX)
+        im = im.resize((min_side, scale), Image.ANTIALIAS)
+    imcrop = im.crop((0,0,min_side,min_side))
+    return imcrop
     #return im
 
 def load_detect(img_path):
@@ -50,7 +52,8 @@ def load_detect(img_path):
     idx = np.argmax(prob_array)
     face_pos = faces[idx].face.pos
     im = faceCrop(im, face_pos, 0.5)
-    return min_resize_crop(im, 96)
+    mrc = min_resize_crop(im, 96)
+    return mrc
 
 def process_img(img_path):
     """
@@ -59,14 +62,12 @@ def process_img(img_path):
     tmp = img_path.split('/')
     cls_name,img_name = tmp[len(tmp)-2], tmp[len(tmp)-1]
     new_dir_path = os.path.join('faces',cls_name)
-    try:
-        os.makedirs(new_dir_path)
-    except OSError as err:
-        print("OS error: {0}".format(err))
-
+    new_dir_path = './faces'
     new_img_path = os.path.join(new_dir_path, img_name)
     if os.path.exists(new_img_path):
+        print('skipping - ' + new_img_path)
         return 0
+    print('testing - ' + new_img_path)
     im = load_detect(img_path)
     # no faces in this image
     if im == 0:
@@ -82,16 +83,28 @@ def try_process_img(img_path):
 
 # multiprocessing version
 def multi_construct_face_dataset(base_dir):
-    cls_dirs = [f for f in os.listdir(base_dir)]
     imgs = []
-    for i in xrange(len(cls_dirs)):
-        sub_dir = os.path.join(base_dir, cls_dirs[i])
-        imgs_tmp = [os.path.join(sub_dir,f) for f in os.listdir(sub_dir) if f.endswith(('.jpg', '.png'))]
-        imgs = imgs + imgs_tmp
-    print('There are %d classes, %d images in total. \n' % (len(cls_dirs), len(imgs)))
+#    cls_dirs = [f for f in os.listdir(base_dir)]
+
+#    for i in xrange(len(cls_dirs)):
+#        sub_dir = os.path.join(base_dir, cls_dirs[i])
+#        imgs_tmp = [os.path.join(sub_dir,f) for f in os.listdir(sub_dir) if f.endswith(('.jpg', '.png'))]
+#        imgs = imgs + imgs_tmp
+    imgs_tmp = [os.path.join(base_dir,f) for f in os.listdir(base_dir) if f.endswith(('.jpg', '.png'))]
+    imgs = imgs + imgs_tmp
+
+#    print('There are %d classes, %d images in total. \n' % (len(cls_dirs), len(imgs)))
+    print('There are %d images in total. \n' % (len(imgs)))
     pool = Pool(12) # 12 workers
     pool.map(try_process_img, imgs)
 
+new_dir_path = './faces'
+try:
+    os.makedirs(new_dir_path)
+except OSError as err:
+    print("OS error: {0}".format(err))
 
 base_dir = '/home/jielei/gallery-dl/danbooru'
+base_dir = './allpics'
+
 multi_construct_face_dataset(base_dir)
