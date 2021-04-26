@@ -21,7 +21,7 @@ Manipulating latent codes, enables the transition from images in the first row t
 
 The images are not clean, some outliers can be observed, which degrades the quality of the generated images.
 
-![real_sample](images/real_sample.png)
+![real_sample](real_samples.png)
 
 
 
