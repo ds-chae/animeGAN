@@ -43,16 +43,16 @@ class _netG_1(nn.Module):
 
         # Extra layers
         for t in range(n_extra_layers_g):
-            main.add_module('extra-layers-{0}.{1}.conv'.format(t, ngf),
+            main.add_module('extra-layers-{0}_{1}_conv'.format(t, ngf),
                             nn.Conv2d(ngf, ngf, 3, 1, 1, bias=False))
-            main.add_module('extra-layers-{0}.{1}.batchnorm'.format(t, ngf),
+            main.add_module('extra-layers-{0}_{1}_batchnorm'.format(t, ngf),
                             nn.BatchNorm2d(ngf))
-            main.add_module('extra-layers-{0}.{1}.relu'.format(t, ngf),
+            main.add_module('extra-layers-{0}_{1}_relu'.format(t, ngf),
                             nn.LeakyReLU(0.2, inplace=True))
 
-        main.add_module('final_layer.deconv', 
+        main.add_module('final_layer_deconv',
         	             nn.ConvTranspose2d(ngf, nc, 4, 2, 1, bias=False)) # 5,3,1 for 96x96
-        main.add_module('final_layer.tanh', 
+        main.add_module('final_layer_tanh',
         	             nn.Tanh())
             # state size. (nc) x 96 x 96
 
@@ -90,16 +90,16 @@ class _netD_1(nn.Module):
 
         # Extra layers
         for t in range(n_extra_layers_d):
-            main.add_module('extra-layers-{0}.{1}.conv'.format(t, ndf * 8),
+            main.add_module('extra-layers-{0}_{1}_conv'.format(t, ndf * 8),
                             nn.Conv2d(ndf * 8, ndf * 8, 3, 1, 1, bias=False))
-            main.add_module('extra-layers-{0}.{1}.batchnorm'.format(t, ndf * 8),
+            main.add_module('extra-layers-{0}_{1}_batchnorm'.format(t, ndf * 8),
                             nn.BatchNorm2d(ndf * 8))
-            main.add_module('extra-layers-{0}.{1}.relu'.format(t, ndf * 8),
+            main.add_module('extra-layers-{0}_{1}_relu'.format(t, ndf * 8),
                             nn.LeakyReLU(0.2, inplace=True))
 
 
-        main.add_module('final_layers.conv', nn.Conv2d(ndf * 8, 1, 4, 1, 0, bias=False))
-        main.add_module('final_layers.sigmoid', nn.Sigmoid())
+        main.add_module('final_layers_conv', nn.Conv2d(ndf * 8, 1, 4, 1, 0, bias=False))
+        main.add_module('final_layers_sigmoid', nn.Sigmoid())
         # state size. 1 x 1 x 1
         self.main = main
 
